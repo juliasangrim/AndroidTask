@@ -43,8 +43,6 @@ class MainActivity : AppCompatActivity() {
         buttonAdd = findViewById(R.id.buttonAdd)
         buttonDelete = findViewById(R.id.buttonDelete)
         textViewInfo = findViewById(R.id.textViewInfo)
-
-        textViewInfo.movementMethod = ScrollingMovementMethod()
     }
 
     private fun getInfoFromEditText(): Info? {
@@ -77,9 +75,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun deleteInfoFromList(list: ArrayList<Info>) {
-        val deletedElement = getInfoFromEditText()
         if (list.isNotEmpty()) {
-            list.remove(deletedElement)
+            list.removeLast()
         }
         if (list.isEmpty()) {
             showSnackbarError(EMPTY_LIST_ERROR)
