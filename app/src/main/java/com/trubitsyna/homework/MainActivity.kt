@@ -1,54 +1,37 @@
 package com.trubitsyna.homework
 
 import android.os.Bundle
-import android.text.method.ScrollingMovementMethod
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import by.kirich1409.viewbindingdelegate.CreateMethod
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
+import com.trubitsyna.homework.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
-    private lateinit var editTextName: EditText
-    private lateinit var editTextSurname: EditText
-    private lateinit var editTextAge: EditText
-    private lateinit var buttonAdd: Button
-    private lateinit var buttonDelete: Button
-    private lateinit var textViewInfo: TextView
+    private val viewBinding: ActivityMainBinding by viewBinding(createMethod = CreateMethod.INFLATE)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(viewBinding.root)
         val peopleInfoList = ArrayList<Info>()
-
-        initView()
-        buttonAdd.setOnClickListener {
+        viewBinding.buttonAdd.setOnClickListener {
             addInfoToList(peopleInfoList)
             showList(peopleInfoList)
         }
 
-        buttonDelete.setOnClickListener {
+        viewBinding.buttonDelete.setOnClickListener {
             deleteInfoFromList(peopleInfoList)
             showList(peopleInfoList)
         }
 
     }
 
-    private fun initView() {
-        editTextName = findViewById(R.id.editTextName)
-        editTextSurname = findViewById(R.id.editTextSurname)
-        editTextAge = findViewById(R.id.editTextAge)
-        buttonAdd = findViewById(R.id.buttonAdd)
-        buttonDelete = findViewById(R.id.buttonDelete)
-        textViewInfo = findViewById(R.id.textViewInfo)
-    }
-
     private fun getInfoFromEditText(): Info? {
-        val name = editTextName.text.toString()
-        val surname = editTextSurname.text.toString()
-        val age = editTextAge.text.toString()
+        val name = viewBinding.editTextName.text.toString()
+        val surname = viewBinding.editTextSurname.text.toString()
+        val age = viewBinding.editTextAge.text.toString()
         if (name.isNotBlank() && surname.isNotBlank() && age.isNotBlank()) {
             return Info(name, surname, age.toInt())
         }
@@ -91,7 +74,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showList(list: List<Info>) {
-        textViewInfo.text = fromListToFormatString(list)
+        viewBinding.textViewInfo.text = fromListToFormatString(list)
     }
 
     private fun showToastError(message: String) {
@@ -100,7 +83,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showSnackbarError(message: String) {
-        Snackbar.make(buttonDelete, message, Snackbar.LENGTH_SHORT)
+        Snackbar.make(viewBinding.buttonDelete, message, Snackbar.LENGTH_SHORT)
             .show()
     }
 
