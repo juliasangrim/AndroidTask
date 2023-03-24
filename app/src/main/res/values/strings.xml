@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">homework</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="age">Возраст</string>
+    <string name="addButtonName">Добавить</string>
+    <string name="deleteButtonName">Удалить</string>
 </resources>
