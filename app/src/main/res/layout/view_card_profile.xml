@@ -20,7 +20,7 @@
             tools:background="@color/md_theme_dark_primary" />
 
         <TextView
-            android:id="@+id/textViewName"
+            android:id="@+id/textViewTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -35,6 +35,7 @@
             tools:text="@string/test_profile_name" />
 
         <TextView
+            android:id="@+id/textViewSubtitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -44,7 +45,7 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewProfile"
-            app:layout_constraintTop_toBottomOf="@id/textViewName"
+            app:layout_constraintTop_toBottomOf="@id/textViewTitle"
             tools:text="@string/test_profile_subtext" />
 
         <com.google.android.material.divider.MaterialDivider
@@ -68,6 +69,7 @@
             app:layout_constraintTop_toBottomOf="@id/dividerProfile">
 
             <TextView
+                android:id="@+id/textViewImageCounter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -94,6 +96,7 @@
             app:layout_constraintTop_toBottomOf="@id/dividerProfile">
 
             <TextView
+                android:id="@+id/textViewSubscriberCounter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -120,6 +123,7 @@
             app:layout_constraintTop_toBottomOf="@id/dividerProfile">
 
             <TextView
+                android:id="@+id/textViewPostCounter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -147,13 +151,13 @@
 
 
         <Button
+            android:id="@+id/buttonEdit"
             style="@style/Widget.Material3.Button.TonalButton.Icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/edit"
             android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
-            android:textColor="@color/md_theme_light_onPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/dividerButton" />
