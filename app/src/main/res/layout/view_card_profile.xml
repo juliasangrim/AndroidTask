@@ -1,0 +1,161 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?attr/materialCardViewElevatedStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_optimizationLevel="barrier">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageViewProfile"
+            android:layout_width="@dimen/profile_image_size"
+            android:layout_height="@dimen/profile_image_size"
+            android:layout_margin="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/RoundedImage"
+            tools:background="@color/md_theme_dark_primary" />
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageViewProfile"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/test_profile_name" />
+
+        <TextView
+            android:id="@+id/textViewProfileSubtext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewProfile"
+            app:layout_constraintTop_toBottomOf="@id/textViewName"
+            tools:text="@string/test_profile_subtext" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/dividerProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewProfile" />
+
+        <TextView
+            android:id="@+id/textViewImageCounter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            app:layout_constraintEnd_toStartOf="@id/textViewSubscribeCounter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dividerProfile"
+            tools:text="@string/test_images_count" />
+
+        <TextView
+            android:id="@+id/textViewSubscribeCounter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            app:layout_constraintEnd_toStartOf="@id/textViewPostCounter"
+            app:layout_constraintStart_toEndOf="@id/textViewImageCounter"
+            app:layout_constraintTop_toBottomOf="@+id/dividerProfile"
+            tools:text="@string/test_subscribers_count" />
+
+        <TextView
+            android:id="@+id/textViewPostCounter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textViewSubscribeCounter"
+            app:layout_constraintTop_toBottomOf="@+id/dividerProfile"
+            tools:text="@string/test_post_count" />
+
+        <TextView
+            android:id="@+id/textViewImageSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/images"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+            app:layout_constraintEnd_toStartOf="@id/textViewSubscribeSubtitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewImageCounter" />
+
+        <TextView
+            android:id="@+id/textViewSubscribeSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/subscribers"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+            app:layout_constraintEnd_toStartOf="@id/textViewPostSubtitle"
+            app:layout_constraintStart_toEndOf="@id/textViewImageSubtitle"
+            app:layout_constraintTop_toBottomOf="@id/textViewSubscribeCounter" />
+
+        <TextView
+            android:id="@+id/textViewPostSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/posts"
+            android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textViewSubscribeSubtitle"
+            app:layout_constraintTop_toBottomOf="@id/textViewPostCounter" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="textViewImageSubtitle, textViewSubscribeSubtitle,
+            textViewPostSubtitle" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/dividerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/barrier" />
+
+        <Button
+            android:id="@+id/buttonEdit"
+            style="@style/Widget.Material3.Button.TonalButton.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/edit"
+            android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+            android:textColor="@color/md_theme_light_onPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dividerButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
