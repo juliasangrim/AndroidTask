@@ -1,31 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity">
+    tools:context=".ImageActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbarProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="@string/toolbar_title_profile"
-            app:titleCentered="true"
-            app:menu="@menu/menu_profile"
-            />
+            app:navigationIcon="@drawable/ic_back"
+            app:title="@string/image_title"
+            app:titleCentered="true" />
     </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewConcat"
+        android:id="@+id/recyclerViewImages"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp"
-        android:clipToPadding="false"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp" />
 
 </LinearLayout>
