@@ -31,36 +31,42 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val name = viewBinding.editTextName.text.toString()
         val surname = viewBinding.editTextSurname.text.toString()
         val age = viewBinding.editTextAge.text.toString()
-        if (name.isNotBlank() && surname.isNotBlank() && age.isNotBlank()) {
-            return Info(name, surname, age.toInt())
+        return when {
+            name.isBlank() -> {
+                showToastError(EMPTY_NAME_ERROR_MESSAGE)
+                null
+            }
+            surname.isBlank() -> {
+                showToastError(EMPTY_SURNAME_ERROR_MESSAGE)
+                null
+            }
+            age.isBlank() -> {
+                showToastError(EMPTY_AGE_ERROR_MESSAGE)
+                null
+            }
+            age.toIntOrNull() == null -> {
+                showToastError(INVALID_AGE_ERROR)
+                null
+            }
+            else -> {
+                Info(name, surname, age.toInt())
+            }
         }
-        if (name.isBlank()) {
-            showToastError(EMPTY_NAME_ERROR_MESSAGE)
-        }
-        if (surname.isBlank()) {
-            showToastError(EMPTY_SURNAME_ERROR_MESSAGE)
-        }
-        if (age.isBlank()) {
-            showToastError(EMPTY_AGE_ERROR_MESSAGE)
-        }
-        return null
     }
 
     private fun addInfoToList(list: ArrayList<Info>) {
         val info = getInfoFromEditText()
-        if (info != null && list.size < MAX_INFO_LIST_SIZE) {
-            list.add(info)
-        }
         if (list.size >= MAX_INFO_LIST_SIZE) {
             showSnackbarError(TOO_MANY_ELEM_ERROR)
+        } else {
+            info?.let { list.add(it) }
         }
     }
 
     private fun deleteInfoFromList(list: ArrayList<Info>) {
         if (list.isNotEmpty()) {
             list.removeLast()
-        }
-        if (list.isEmpty()) {
+        } else {
             showSnackbarError(EMPTY_LIST_ERROR)
         }
     }
@@ -91,6 +97,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         const val EMPTY_NAME_ERROR_MESSAGE = "Поле \"Имя\" не должно быть пустым!"
         const val EMPTY_SURNAME_ERROR_MESSAGE = "Поле \"Фамилия\" не должно быть пустым"
         const val EMPTY_AGE_ERROR_MESSAGE = "Поле \"Возраст\" не должно быть пустым!"
+        const val INVALID_AGE_ERROR = "Поле \"Возраст\" должно быть целым числом!"
         const val EMPTY_LIST_ERROR = "Лист пустой!"
         const val TOO_MANY_ELEM_ERROR = "Лист заполнен! " +
                 "Максимальное количество элементов $MAX_INFO_LIST_SIZE"
