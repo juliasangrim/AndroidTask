@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="RoundedImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="RoundedCornerImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="BorderedButton">
+        <item name="strokeColor">@color/md_theme_dark_outline</item>
+        <item name="strokeWidth">@dimen/like_button_stroke_width</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="iconTint">@color/md_theme_dark_primary</item>
+        <item name="android:textColor">@color/md_theme_dark_primary</item>
+    </style>
+</resources>

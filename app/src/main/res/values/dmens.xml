@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="post_image_size">40dp</dimen>
+    <dimen name="card_image_height">80dp</dimen>
+    <dimen name="profile_image_size">64dp</dimen>
+    <dimen name="like_button_stroke_width">1dp</dimen>
+    <dimen name="like_button_width">74dp</dimen>
+    <dimen name="image_height_create_post">184dp</dimen>
+    <dimen name="bottom_navigation_padding">80dp</dimen>
+</resources>

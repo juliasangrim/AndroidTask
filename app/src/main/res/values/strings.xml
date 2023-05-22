@@ -1,3 +1,41 @@
 <resources>
-    <string name="app_name">homework</string>
+    <string name="app_name">NanoPost</string>
+    <string name="edit">Edit</string>
+    <string name="images">images</string>
+    <string name="subscribers">subscribers</string>
+    <string name="posts">posts</string>
+    <string name="image_title">Images</string>
+    <string name="title_feed">Feed</string>
+    <string name="toolbar_title_post">Post</string>
+    <string name="title_profile">Profile</string>
+    <string name="menu_item_exit_title">Exit</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="button_name_continue">Continue</string>
+    <string name="add_post_hint_text">Type text here…</string>
+    <string name="add_post_toolbar_title">New post…</string>
+    <string name="add_post_menu_item">Add post</string>
+    <string name="add_post_add_image_chip">Add image…</string>
+
+    <string name="error_msg_short_username">Username must be longer than 3 characters</string>
+    <string name="error_msg_long_username">Username must be shorter than 16 characters</string>
+    <string name="error_msg_invalid_char_username">Username must contains characters: \"a\"-\"z\" \"_\" \".\"</string>
+    <string name="error_msg_short_password">Password must be longer than 8 characters</string>
+    <string name="error_msg_incorrect_password">Incorrect password.</string>
+    <string name="error_msg_unknown">Something went wrong. Please, try later</string>
+    <string name="error_msg_empty_post">You can\'t create empty post!</string>
+    <string name="error_msg_network">There’s something wrong with your network connection</string>
+    <string name="error_msg_delete">Delete failed</string>
+    <string name="error_msg_create_post">Can\'t create post. Try later.</string>
+
+    <string name="logout_title">Logout</string>
+    <string name="logout_subtitle">Are you sure you want to log out?</string>
+    <string name="confirm">Confirm</string>
+    <string name="loading_data_title">Post creation</string>
+    <string name="creation_post_success">Create post successfully!</string>
+    <string name="delete_success">Delete successfully!</string>
+    <string name="loading_data">Loading…</string>
+    <string name="cancel">Cancel</string>
+    <string name="action_text">Retry</string>
+    <string name="delete">Delete</string>
 </resources>
