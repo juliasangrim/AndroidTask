@@ -30,14 +30,6 @@ class NoteListAdapter : ListAdapter<Note, NoteListAdapter.NoteViewHolder>(diffUt
         holder.bind(getItem(position))
     }
 
-
-    //for the future
-//    fun onSwipeDeleteItem(position: Int) {
-//        val currentElem = currentList[position]
-//        onSwipeNote(currentElem.id)
-//        notifyItemRemoved(position)
-//    }
-
     inner class NoteViewHolder(
         private val binding: ItemNoteBinding
     ) : ViewHolder(binding.root) {

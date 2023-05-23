@@ -30,5 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_add_24" />
+        android:src="@drawable/ic_add_24"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

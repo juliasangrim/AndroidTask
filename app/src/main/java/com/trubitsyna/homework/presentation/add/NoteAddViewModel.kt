@@ -12,10 +12,8 @@ class NoteAddViewModel(
 ): ViewModel() {
 
     fun onAddClicked(text: String) {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
+        viewModelScope.launch (Dispatchers.IO) {
                 addNoteUseCase.execute(text)
-            }
         }
     }
 

@@ -9,7 +9,6 @@ import com.trubitsyna.homework.domain.DeleteNoteUseCase
 import com.trubitsyna.homework.domain.GetNotesUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class NotesListViewModel(
     private val getNotesUseCase: GetNotesUseCase = GetNotesUseCase(),
@@ -33,10 +32,8 @@ class NotesListViewModel(
     }
 
     fun onDeleteClicked(id: String) {
-        viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                deleteNoteUseCase.execute(id)
-            }
+        viewModelScope.launch(Dispatchers.IO) {
+            deleteNoteUseCase.execute(id)
             getNotes()
         }
     }
