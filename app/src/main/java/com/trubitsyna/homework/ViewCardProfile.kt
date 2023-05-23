@@ -12,25 +12,23 @@ class ViewCardProfile @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : MaterialCardView(context, attrs, defStyleAttr) {
-    lateinit var binding: ViewCardProfileBinding
+    private val binding: ViewCardProfileBinding by lazy {
+        ViewCardProfileBinding.inflate(
+            LayoutInflater.from(context),
+            this
+        )
+    }
 
     init {
-        binding = ViewCardProfileBinding.inflate(
-            LayoutInflater.from(context),
-            this, true
-        )
-
         context.withStyledAttributes(
             attrs,
-            R.styleable.ViewCardProfile,
-            defStyleAttr,
-            0
+            R.styleable.ViewCardProfile
         ) {
-            getString(R.styleable.ViewCardProfile_title)?.let { title ->
-                binding.textViewTitle.text = title
+            getString(R.styleable.ViewCardProfile_title)?.let { name ->
+                binding.textViewName.text = name
             }
             getString(R.styleable.ViewCardProfile_subtitle)?.let { subtitle ->
-                binding.textViewSubtitle.text = subtitle
+                binding.textViewProfileSubtext.text = subtitle
             }
             getDrawable(R.styleable.ViewCardProfile_profileImage)?.let { drawable ->
                 binding.imageViewProfile.setImageDrawable(drawable)
@@ -39,13 +37,15 @@ class ViewCardProfile @JvmOverloads constructor(
                 binding.textViewImageCounter.text = num.toString()
             }
             getInt(R.styleable.ViewCardProfile_subscriberCounter, 0).let { num ->
-                binding.textViewSubscriberCounter.text = num.toString()
+                binding.textViewSubscribeCounter.text = num.toString()
             }
             getInt(R.styleable.ViewCardProfile_postCounter, 0).let { num ->
                 binding.textViewPostCounter.text = num.toString()
             }
-            getColor(R.styleable.ViewCardProfile_buttonColor, 0)?.let { color ->
-                binding.buttonEdit.setBackgroundColor(color)
+            getColor(R.styleable.ViewCardProfile_buttonColor, 0).let { color ->
+                if (color != 0) {
+                    binding.buttonEdit.setBackgroundColor(color)
+                }
             }
         }
     }
